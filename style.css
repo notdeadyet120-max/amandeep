@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fff0f6, #ffe4ec);
+  overflow: hidden;
+}
+
+/* SINGLE PAGE SYSTEM */
+.book {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ONLY ONE LAYER (NO STACKING = NO LAG) */
+.page {
+  width: 90%;
+  max-width: 720px;
+  padding: 45px;
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 25px 70px rgba(255, 120, 180, 0.25);
+
+  transform: translate3d(0,0,0);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.55s ease;
+  will-change: transform, opacity;
+}
+
+/* SMOOTH SLIDE EFFECT */
+.slide-left {
+  transform: translate3d(-120%,0,0);
+  opacity: 0;
+}
+
+.slide-right {
+  transform: translate3d(120%,0,0);
+  opacity: 0;
+}
+
+/* TEXT */
+h1,h2 {
+  color: #ff4f92;
+}
+
+p {
+  color: #5a2c3e;
+  line-height: 1.8;
+}
+
+/* BUTTON */
+.btn-love {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #ff6fa6, #ff3d86);
+  color: white;
+  box-shadow: 0 10px 25px rgba(255,80,140,0.3);
+  transition: 0.2s;
+}
+
+.btn-love:hover {
+  transform: scale(1.06);
+}
+
+/* HEARTS FULLSCREEN */
+#hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 2s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-300px) scale(1.4); opacity: 0; }
+}
